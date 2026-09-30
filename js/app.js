@@ -6,7 +6,7 @@
 // --------------------------------------------------------------------------
 // Configuration & State
 // --------------------------------------------------------------------------
-const DEFAULT_MEDIUM_HANDLE = "purushothamvilasagaram95";
+const DEFAULT_MEDIUM_HANDLE = "purushotham.sdet";
 let currentMediumHandle = localStorage.getItem("pv_medium_handle") || DEFAULT_MEDIUM_HANDLE;
 
 let mediumArticles = [];
