@@ -91,6 +91,9 @@ const navMenu = document.getElementById("navMenu");
 const contactForm = document.getElementById("contactForm");
 const newsletterForm = document.getElementById("newsletterForm");
 
+// Career Start Date: January 16, 2023
+const CAREER_START_DATE = new Date(2023, 0, 16);
+
 // --------------------------------------------------------------------------
 // Initialization
 // --------------------------------------------------------------------------
@@ -99,12 +102,37 @@ document.addEventListener("DOMContentLoaded", () => {
     currentYearSpan.textContent = new Date().getFullYear();
   }
 
+  initDynamicExperience();
   initTheme();
   updateMediumProfileUI();
   fetchMediumFeed();
   updateBookmarkBadge();
   setupEventListeners();
 });
+
+// --------------------------------------------------------------------------
+// Automatic Experience Calculator (Career Start: 16 Jan 2023)
+// --------------------------------------------------------------------------
+function calculateDynamicExperience() {
+  const now = new Date();
+  
+  let months = (now.getFullYear() - CAREER_START_DATE.getFullYear()) * 12 + (now.getMonth() - CAREER_START_DATE.getMonth());
+  if (now.getDate() < CAREER_START_DATE.getDate()) {
+    months -= 1;
+  }
+  
+  if (months < 0) months = 0;
+
+  const years = (months / 12).toFixed(1);
+  return `${years}+`;
+}
+
+function initDynamicExperience() {
+  const expString = calculateDynamicExperience();
+  document.querySelectorAll(".dynamic-exp-years").forEach(el => {
+    el.textContent = expString;
+  });
+}
 
 // --------------------------------------------------------------------------
 // Medium Profile & Link Synchronization
@@ -332,25 +360,27 @@ function renderArticles() {
       return `
         <article class="article-card medium-card glassmorphism" onclick="openArticleModal('${article.guid}')" data-guid="${article.guid}">
           ${thumbHtml}
-          <div class="card-top">
-            <div class="article-meta-row">
-              <span class="badge badge-medium"><i class="fa-brands fa-medium"></i> Medium</span>
-              <span><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
-              <span><i class="fa-regular fa-calendar"></i> ${article.pubDate}</span>
+          <div class="article-card-body">
+            <div class="card-top">
+              <div class="article-meta-row">
+                <span class="badge badge-medium"><i class="fa-brands fa-medium"></i> Medium</span>
+                <span><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
+                <span><i class="fa-regular fa-calendar"></i> ${article.pubDate}</span>
+              </div>
+              <h3 class="article-card-title">${article.title}</h3>
+              <p class="article-card-excerpt">${article.excerpt}</p>
+              <div class="article-tags-wrap">
+                ${article.categories.map(c => `<span class="tag-badge">#${c}</span>`).join("")}
+              </div>
             </div>
-            <h3 class="article-card-title">${article.title}</h3>
-            <p class="article-card-excerpt">${article.excerpt}</p>
-            <div class="article-tags-wrap">
-              ${article.categories.map(c => `<span class="tag-badge">#${c}</span>`).join("")}
+            <div class="card-bottom">
+              <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="read-btn-link" onclick="event.stopPropagation()">
+                Read on Medium <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="action-btn icon-btn" title="Save Story" onclick="toggleBookmark('${article.guid}', event)">
+                <i class="${isBookmarked ? 'fa-solid text-highlight' : 'fa-regular'} fa-bookmark"></i>
+              </button>
             </div>
-          </div>
-          <div class="card-bottom">
-            <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="read-btn-link" onclick="event.stopPropagation()">
-              Read on Medium <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
-            <button class="action-btn icon-btn" title="Save Story" onclick="toggleBookmark('${article.guid}', event)">
-              <i class="${isBookmarked ? 'fa-solid text-highlight' : 'fa-regular'} fa-bookmark"></i>
-            </button>
           </div>
         </article>
       `;

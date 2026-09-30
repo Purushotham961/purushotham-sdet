@@ -102,7 +102,7 @@
           </h1>
 
           <p class="hero-description">
-            SDET with <strong>3.7+ years</strong> designing and executing enterprise-scale test frameworks across <strong>Playwright (TypeScript)</strong>, <strong>Robot Framework (Python)</strong>, and <strong>Selenium (Java)</strong>. Proven track record of cutting regression cycles by <strong>60%</strong> and managing zero-handoff acquisitions.
+            SDET with <strong><span class="dynamic-exp-years">3.7+</span> years</strong> designing and executing enterprise-scale test frameworks across <strong>Playwright (TypeScript)</strong>, <strong>Robot Framework (Python)</strong>, and <strong>Selenium (Java)</strong>. Proven track record of cutting regression cycles by <strong>60%</strong> and managing zero-handoff acquisitions.
           </p>
 
           <div class="hero-cta-group">
@@ -159,7 +159,7 @@
               <!-- Terminal Code Snapshot -->
               <div class="code-preview-block">
                 <pre><code><span class="c-keyword">interface</span> <span class="c-type">SDETProfile</span> {
-  <span class="c-prop">experience</span>: <span class="c-string">"3.7+ Years End-to-End"</span>;
+  <span class="c-prop">experience</span>: <span class="c-string">"<span class="dynamic-exp-years">3.7+</span> Years End-to-End"</span>;
   <span class="c-prop">frameworks</span>: [<span class="c-string">"Playwright"</span>, <span class="c-string">"Robot"</span>, <span class="c-string">"Selenium"</span>];
   <span class="c-prop">regressionGain</span>: <span class="c-string">"60% Reduction"</span>;
   <span class="c-prop">acquisitionsHandled</span>: <span class="c-number">2</span>; <span class="c-comment">// Infor & Velotic</span>
@@ -204,7 +204,7 @@
               <i class="fa-solid fa-briefcase"></i>
             </div>
             <div class="metric-info">
-              <span class="metric-value">3.7+</span>
+              <span class="metric-value dynamic-exp-years">3.7+</span>
               <span class="metric-label">Years of SDET Excellence</span>
               <p class="metric-desc">Cross-platform UI, API, Windows desktop, and data governance automation.</p>
             </div>
@@ -346,7 +346,7 @@
           <div class="section-tag"><i class="fa-solid fa-timeline"></i> Career Journey</div>
           <h2 class="section-title">Professional Experience & Impact</h2>
           <p class="section-subtitle">
-            3.7+ years driving quality engineering across high-stakes enterprise and industrial products.
+            <span class="dynamic-exp-years">3.7+</span> years driving quality engineering across high-stakes enterprise and industrial products.
           </p>
         </div>
 
@@ -754,7 +754,7 @@
               <div class="about-avatar-wrapper">
                 <div class="about-avatar-letters">PV</div>
                 <div class="experience-badge">
-                  <span class="exp-num">3.7+</span>
+                  <span class="exp-num dynamic-exp-years">3.7+</span>
                   <span class="exp-text">Years Exp</span>
                 </div>
               </div>
@@ -773,7 +773,7 @@
                 I am a passionate Quality Assurance Engineer and SDET based in <strong>Hyderabad, India</strong>, committed to eliminating software defects through robust, automated engineering practices.
               </p>
               <p class="about-text">
-                Over the past 3.7+ years, I have architected automated test pipelines that execute across distributed VMs, Windows desktop applications, and microservice APIs. My methodology focuses on <strong>identifying high-risk manual bottlenecks</strong>, converting them into resilient automated suites, and providing engineering leadership with continuous release confidence.
+                Over the past <span class="dynamic-exp-years">3.7+</span> years, I have architected automated test pipelines that execute across distributed VMs, Windows desktop applications, and microservice APIs. My methodology focuses on <strong>identifying high-risk manual bottlenecks</strong>, converting them into resilient automated suites, and providing engineering leadership with continuous release confidence.
               </p>
               <p class="about-text">
                 Whether diagnosing subtle asynchronous API issues via the Chrome DevTools Protocol or publishing technical engineering insights on Medium, I bridge the gap between development speed and software quality.
@@ -1011,25 +1011,25 @@
   <div id="handleConfigModal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="handleModalTitle">
     <div class="modal-container handle-modal glassmorphism">
       <div class="modal-top-bar">
-        <h3 id="handleModalTitle" style="font-size: 1.1rem; font-weight: 700;"><i class="fa-brands fa-medium"></i> Configure Medium Username</h3>
+        <h3 id="handleModalTitle" class="modal-heading"><i class="fa-brands fa-medium"></i> Configure Medium Username</h3>
         <button id="closeHandleModalBtn" class="icon-btn close-btn" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="modal-body-scroll" style="padding: 24px;">
-        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">
+      <div class="modal-body-scroll modal-body-padded">
+        <p class="handle-modal-desc">
           Enter your Medium username (handle). Whenever you publish any story or article on this Medium profile, it will automatically sync and appear on your website.
         </p>
         <form id="mediumHandleForm">
-          <div class="form-group" style="margin-bottom: 16px;">
+          <div class="form-group mb-4">
             <label for="customHandleInput">Medium Username / Handle</label>
-            <div class="input-group">
-              <span style="display: flex; align-items: center; padding: 0 12px; background: var(--bg-tertiary); border: 1px solid var(--border-medium); border-right: none; border-radius: var(--radius-md) 0 0 var(--radius-md); color: var(--text-muted); font-weight: 600;">@</span>
-              <input type="text" id="customHandleInput" placeholder="purushotham.sdet" required style="border-top-left-radius: 0; border-bottom-left-radius: 0;">
+            <div class="handle-input-group">
+              <span class="input-prefix">@</span>
+              <input type="text" id="customHandleInput" placeholder="purushotham.sdet" required>
             </div>
-            <span style="font-size: 0.775rem; color: var(--text-muted); margin-top: 4px; display: block;">
+            <span class="handle-help-text">
               Example: If your URL is <code>medium.com/@purushothamv</code>, enter <code>purushothamv</code>.
             </span>
           </div>
-          <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <div class="modal-actions-footer">
             <button type="button" id="cancelHandleBtn" class="btn btn-secondary btn-sm">Cancel</button>
             <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-rotate"></i> Save & Sync Feed</button>
           </div>
